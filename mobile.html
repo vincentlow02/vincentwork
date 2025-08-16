@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <style>
+        html, body {
+            min-height: 3730px;
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+
+        .Logo {
+            font-size:55px;
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            position: relative;
+            top: 170px;
+            left: 70px;
+        }
+
+        .ddd {
+            position: relative;
+            top: 90px;
+            left: 870px;
+        }
+
+        
+
+        
+        
+        /* ===== 页面内容样式  ===== */
+        .description {
+            font-size: 38px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            font-weight: 500;
+            top: 1070px;
+            left: 77px;
+            right: 3px;
+            line-height: 54px;
+            color: black;
+        }
+
+        .japanese {
+            font-size: 30px;
+            color: rgb(98, 97, 97);
+            line-height: 40px;
+            position: absolute;
+            top: 1410px;
+            left: 77px;
+            right: 77px;
+            letter-spacing: 1px;
+            line-height: 49px;
+        }
+
+
+        .photo {
+            position: absolute;
+            top: 370px;
+            left: 70px;
+            right: 3px;
+            width: 870px;      /* 宽度由 left+right 决定 */
+            height: 711px;     /* 保持原比例缩放（如果需要固定比例可以改成固定 height） */
+           
+        }
+
+        .education-title {
+            font-size: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 1840px;
+            left: 160px;
+
+        }
+
+        .graduation-cap{
+            position: absolute;
+            top: 1880px;
+        }
+
+        .toolsbox {
+            position: absolute;
+            top: 2440px;
+        }
+
+        
+        .line {
+            position: absolute;
+            left: 77px;
+            right: 77px;
+            top: 1970px;
+        }
+
+        .line001 {
+            position: absolute;
+            top: 2530px;
+            left: 77px;
+            right: 77px;
+        }
+
+        .school-name {
+            font-size: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 2000px;
+            left: 77px;
+        }
+
+        .time {
+            font-size: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 2000px;
+            right: 77px;
+        }
+
+        .menu {
+            font-size: 27px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 2074px;
+            left: 77px;
+            color: rgb(124,123,123);
+        }
+
+        .school {
+            font-size: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 2200px;
+            left: 77px;
+        }
+
+        .time02 {
+            font-size: 40px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 2200px;
+            right: 77px;
+        }
+
+        .toolsbox01 {
+            font-size: 40px;
+            position: absolute;
+            top: 2407px;
+            left: 160px;
+
+        }
+
+        .arrow {
+            position: absolute;
+            top: 3000px;
+        }
+
+        .back {
+            position: absolute;
+            top: 3065px;
+            left: 390px;
+            font-size: 40px;
+        }
+        
+        .vincent {
+            position: absolute;
+            top: 3630px;
+            left: 70px;
+            font-size: 23px;
+            color: black;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .Email {
+            position: absolute;
+            top: 3370px;
+            left: 70px;
+            font-size: 34px;
+            color: rgb(98, 97, 97);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+         }
+
+         .Twitter {
+            position: absolute;
+            top: 3430px;
+            left: 70px;
+            font-size: 34px;
+            color: rgb(98, 97, 97);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+         }
+
+         .Linkedln {
+            position: absolute;
+            top: 3487px;
+            left: 70px;
+            font-size: 34px;
+            color: rgb(98, 97, 97);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+         }
+
+         .Instagram {
+            position: absolute;
+            top: 3550px;
+            left: 70px;
+            font-size: 34px;
+            color: rgb(98, 97, 97);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+         }
+
+     .my-button, .my-button01, .my-button02, .my-button03, .my-button04, .my-button05 {
+            font-size: 40px; 
+            letter-spacing: 1.3px;
+            padding: 14px 30px;
+            border-radius: 40px;
+            background-color: rgb(232, 232, 232);
+            color: black;
+            border: none;
+    }
+
+    .my-button {position: absolute;top: 2600px;left: 77px;}
+    .my-button01 {position: absolute;top: 2600px;left: 300px;}
+    .my-button02 {position: absolute;top: 2600px;left: 680px;}
+    .my-button03 {position: absolute;top: 2720px;left: 77px;}
+    .my-button04 {position: absolute;top: 2720px;left: 390px;}
+    .my-button05 {position: absolute;top: 2720px;left: 700px;}
+
+   
+    </style>
+</head>
+    <body data-page="about">
+
+    <header class="main-header">
+        <a href="work.html" class="Logo">V</a>
+        
+    </header>
+
+    <img class="photo" src="edit 1.svg" alt="photo" width="1200" height="1200">
+    <img class="ddd" src="Group 16.svg" alt="ddd" width="70" height="70">
+    <img class="graduation-cap" src="Graduation-Cap.svg" alt="graduation cap" width="54" height=54">
+    <img class="toolsbox" src="Toolbox.svg" alt="toolsbox" width="50" height="50">
+    <img class="arrow" src="Arrow 1.svg" alt="arrow" width="270" height="270">
+    <hr class="line">
+    <hr class="line001">
+  
+   
+    </p>
+    <p class="japanese">
+      ヴィンセント・ロウシック・チング。2002年生まれ、マレーシア・ジョホールバル出身。日本語、中国語、英語、マレー語
+      の4ヶ言語を話します。現在、東京造形大学造形学部デザイン学科インダストリアル専攻の3年生です。大学ではUI/UXデザイ
+      ンと工業デザインの両方を学んでいます。人々の暮らしに価値と喜びをもたらす製品やサービスをデザインすることを目指しています。
+    </p>
+    <p class="description">
+      I'm Vincent Low Sik Ching, a third-year Industrial Design student at Tokyo Zokei University, 
+      originally from Johor Bahru, Malaysia. I aim to design products and services that bring value 
+      and joy to people's lives.
+    </p>
+    <p class="education-title">EDUCATION 経歴</p>
+    <p class="toolsbox01">TOOLKIT ツールセット</p>
+    <p class="school-name">TZU 東京造形大学</p>
+    <p class="menu">Industrial Design , Interaction Design</p>
+    <p class="time">2023  -  present</p>
+    <p class="school">Foon Yew High School</p>
+    <p class="time02">2015  -  2020</p>
+    <p class="back">BACK TO WORK</p>
+    <p class="vincent">©Vincent Low Sik Ching. All Rights Reserved.</p>
+    <p class="Email">Email</p>
+    <p class="Twitter">Twitter</p>
+    <p class="Linkedln">Linkedln</p>
+    <p class="Instagram">Instagram</p>
+
+    <button class="my-button">Figma</button>
+    <button class="my-button01">HTML/CSS/JS</button>
+    <button class="my-button02">Adobe CC</button>
+    <button class="my-button03">Fusion 360</button>
+    <button class="my-button04">3D Printing</button>
+    <button class="my-button05">Keyshot</button>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const underline = document.querySelector('.nav-underline');
+            const items = document.querySelectorAll('.nav-item');
+            const currentId = document.body.dataset.page;
+            const currentItem = document.getElementById(currentId);
+
+            function setUnderline(el) {
+                if (el) {
+                    underline.style.width = `${el.offsetWidth}px`;
+                    underline.style.left = `${el.offsetLeft}px`;
+                }
+            }
+
+            if (currentItem) {
+                // 使用 requestAnimationFrame 确保在浏览器下一次绘制前更新
+                requestAnimationFrame(() => {
+                    setUnderline(currentItem);
+                });
+            }
+
+            items.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    setUnderline(this);
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 400);
+                });
+            });
+        });
+    </script>
+
+    <script>
+    document.querySelector('.back').addEventListener('click', () => {
+        window.location.href = 'work.html';
+    });
+
+     document.querySelector('.arrow').addEventListener('click', () => {
+        window.location.href = 'work.html';
+    });
+
+     document.querySelector('.Instagram').addEventListener('click', () => {
+        window.open('https://www.instagram.com/vincent_low02/profilecard/?igsh=MWt4NW1hMmZkeTl5ZQ%3D%3D', '_blank');
+    });
+
+    document.querySelector('.Linkedln').addEventListener('click', () => {
+        window.open(
+            'https://www.linkedin.com/in/vincent-low-sik-ching/',
+            '_blank'
+        );
+    });
+
+    document.querySelector('.Twitter').addEventListener('click', () => {
+        window.open(
+            'https://x.com/vincentlow521?s=11',
+            '_blank'
+        );
+    });
+
+    document.querySelector('.Email').addEventListener('click', () => {
+    window.location.href = 'mailto:lowvincent21@gmail.com';
+    });
+    </script>
+
+</body>
+</html>
+
+    

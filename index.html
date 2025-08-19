@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <!-- 一定要加 viewport，不然手机上宽度会被当作 980px -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* ===== Header ===== */
+    .main-header {
+      width: 100%;
+      padding: 20px 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .Logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+    }
+
+    .nav {
+      display: flex;
+      gap: 60px;
+      position: relative;
+    }
+
+    .nav-item {
+      font-size: 19px;
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .nav-underline {
+      position: absolute;
+      bottom: -5px;
+      height: 2px;
+      background-color: black;
+      transition: all 0.4s ease;
+    }
+
+    /* ===== Main container ===== */
+    .container {
+      padding: 40px 120px;
+      box-sizing: border-box;
+      max-width: none;
+    }
+
+    /* ===== Intro section ===== */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .intro img {
+      flex: 0 0 auto;
+      max-width: 500px;
+      height: auto;
+    }
+
+    .intro-text {
+      flex: 1 1 400px;
+      font-size: 20px;
+      text-align: left;
+    }
+
+    .japanese {
+      font-size: 17px;
+      color: #626161;
+      margin-top: 20px;
+      text-align: left;
+      line-height: 40px;
+    }
+
+    /* ===== Section titles ===== */
+    h2.section-title {
+      font-size: 19px;
+      margin-top: 80px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.7px;
+    }
+
+    h2.section-title img {
+      width: 26px;
+      height: 26px;
+    }
+
+    hr {
+      border: none;
+      height: 0.7px;
+      background-color: rgb(175, 175, 175);
+      margin: 30px 0;
+    }
+
+    /* ===== Education ===== */
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .school-info {
+      max-width: 70%;
+    }
+
+    .school-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .menu {
+      font-size: 17px;
+      color: #7c7b7b;
+    }
+
+    .time {
+      font-size: 20px;
+      white-space: nowrap;
+    }
+
+    /* ===== Toolkit (skills) ===== */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 60px;
+      color: #000;
+    }
+
+    .skills button {
+      font-size: 15px;
+      letter-spacing: 1.3px;
+      padding: 10px 16px;
+      border-radius: 20px;
+      background-color: rgb(232, 232, 232);
+      border: none;
+      cursor: default;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      margin-top: auto;
+      padding: 40px 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+
+    .vincent {
+      font-size: clamp(10px, 1vw, 13px);
+      color: rgb(98, 97, 97);
+    }
+
+    .social {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .social p {
+      font-size: clamp(12px, 1.5vw, 17px);
+      color: black;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    /* ===== Back link ===== */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 140px;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .back-link img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .main-header {
+        padding: 20px;
+      }
+      .container {
+        padding: 20px;
+      }
+      .intro {
+        flex-direction: column;
+      }
+      .nav {
+        gap: 20px;
+      }
+      footer {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .socials {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body data-page="about">
+
+  <header class="main-header">
+    <a href="work.html" class="Logo">V</a>
+    <nav class="nav">
+      <a href="work.html" class="nav-item" id="work">Work</a>
+      <a href="about.html" class="nav-item" id="about">About</a>
+      <div class="nav-underline"></div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <img src="edit 1.svg" alt="portrait">
+      <div>
+        <p class="intro-text">
+          I'm Vincent Low Sik Ching, a third-year Industrial Design student at Tokyo Zokei University, originally from Johor Bahru, Malaysia. I aim to design products and services that bring value and joy to people's lives.
+        </p>
+        <p class="japanese">
+          ヴィンセント・ロウシック・チング。2002年生まれ、マレーシア・ジョホールバル出身。日本語、中国語、英語、マレー語の4ヶ言語を話します。現在、東京造形大学造形学部デザイン学科インダストリアル専攻の3年生です。大学ではUI/UXデザインと工業デザインの両方を学んでいます。人々の暮らしに価値と喜びをもたらす製品やサービスをデザインすることを目指しています。
+        </p>
+      </div>
+    </section>
+
+    <h2 class="section-title"><img src="Graduation-Cap.svg" alt=""> EDUCATION 経歴</h2>
+    <hr>
+    <div class="education-item">
+      <div class="school-info">
+        <p class="school-name">TZU 東京造形大学</p>
+        <p class="menu">Industrial Design , Interaction Design</p>
+      </div>
+      <p class="time">2023 - present</p>
+    </div>
+    <div class="education-item">
+      <div class="school-info">
+        <p class="school-name">Foon Yew High School</p>
+      </div>
+      <p class="time">2015 - 2020</p>
+    </div>
+
+    <h2 class="section-title"><img src="Toolbox.svg" alt=""> TOOLKIT ツールセット</h2>
+    <hr>
+    <div class="skills">
+      <button>Figma</button>
+      <button>HTML/CSS/JS</button>
+      <button>Adobe CC</button>
+      <button>Fusion 360</button>
+      <button>3D Printing</button>
+      <button>Keyshot</button>
+    </div>
+
+    <a class="back-link" href="work.html" aria-label="Back to home">
+      <img src="Arrow 1.svg" alt="">
+      <span>BACK TO HOME</span>
+    </a>
+  </main>
+
+  <footer class="footer">
+    <p class="vincent">©Vincent Low Sik Ching. All Rights Reserved.</p>
+    <div class="social">
+      <p class="Email">Email</p>
+      <p class="Twitter">Twitter</p>
+      <p class="Linkedln">Linkedln</p>
+      <p class="Instagram">Instagram</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const underline = document.querySelector('.nav-underline');
+      const items = document.querySelectorAll('.nav-item');
+      const currentId = document.body.dataset.page;
+      const currentItem = document.getElementById(currentId);
+
+      function setUnderline(el) {
+        if (el) {
+          underline.style.width = `${el.offsetWidth}px`;
+          underline.style.left = `${el.offsetLeft}px`;
+        }
+      }
+
+      if (currentItem) {
+        requestAnimationFrame(() => {
+          setUnderline(currentItem);
+        });
+      }
+
+      items.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          setUnderline(this);
+          setTimeout(() => {
+            window.location.href = this.href;
+          }, 400);
+        });
+      });
+    });
+
+    document.querySelector('.Instagram').addEventListener('click', () => {
+      window.open('https://www.instagram.com/vincent_low02/profilecard/?igsh=MWt4NW1hMmZkeTl5ZQ%3D%3D', '_blank');
+    });
+
+    document.querySelector('.Linkedln').addEventListener('click', () => {
+      window.open('https://www.linkedin.com/in/vincent-low-sik-ching/', '_blank');
+    });
+
+    document.querySelector('.Twitter').addEventListener('click', () => {
+      window.open('https://x.com/vincentlow521?s=11', '_blank');
+    });
+
+    document.querySelector('.Email').addEventListener('click', () => {
+      window.location.href = 'mailto:lowvincent21@gmail.com';
+    });
+  </script>
+
+  <!-- ✅ 改好的跳转脚本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      function redirectMobile() {
+        if (window.innerWidth <= 820) {
+          if (!window.location.href.includes("mobile.html")) {
+            window.location.href = "mobile.html";
+          }
+        }
+      }
+      redirectMobile();
+      window.addEventListener("resize", redirectMobile);
+    });
+  </script>
+
+</body>
+</html>
+

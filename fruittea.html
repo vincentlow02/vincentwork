@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      min-height: 4000px;
+    }
+
+    /* ===== Header ===== */
+    .main-header {
+      width: 100%;
+      padding: 20px 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+
+      background: transparent; 
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .Logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color:black;
+      transition: color 0.3s ease;
+    }
+
+    .nav {
+      display: flex;
+      gap: 60px;
+      position: relative;
+    }
+
+    .nav-item {
+      font-size: 19px;
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-underline {
+      position: absolute;
+      bottom: -5px;
+      height: 2px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    /* 滚动时的样式 */
+    .main-header.scrolled {
+      background: white;
+    }
+    .main-header.scrolled .Logo,
+    .main-header.scrolled .nav-item {
+      color: black;
+    }
+    .main-header.scrolled .nav-underline {
+      background-color: black;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ===== Concept ===== */
+    .concept {
+      margin-top: 67px;   /* Hero 之后 1000px */
+      padding: 0 200px;     /* 左右对齐 header/footer */
+      font-size: clamp(20px, 2.5vw, 32px);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .concept.title {
+      margin-top: 42px;  
+      text-align: center;   /* 水平居中 */
+      font-size: clamp(18px, 2vw, 30px);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     /* 字体大小 */
+      font-weight: 400;     /* Regular 字重 */
+    }
+
+    .concept.describ {
+      margin-top:-24px;  
+      position: relative;
+      left: 123px;
+      line-height: 2.5;
+      letter-spacing: 1px;
+      font-size: clamp(14px, 1.5vw, 22px);
+      color: rgb(98, 97,97);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     /* 字体大小 */
+      font-weight: 400;     /* Regular 字重 */
+
+    }
+
+    /* Person info 部分 */
+    .person-info p {
+    margin: 5px 0;
+    margin-top: -30px;
+    font-size: clamp(13px, 1.3vw, 14px);
+    color: rgb(80, 80, 80);
+    text-align: left;
+    letter-spacing: 0.5px;
+    position: relative;
+    left: 125px;
+    }
+
+    .package {
+    margin: 5px 0;
+    margin-top: -30px;
+    font-size: clamp(13px, 1.3vw, 15px);
+    color: rgb(80, 80, 80);
+    text-align: left;
+    letter-spacing: 0.5px;
+    position: relative;
+    left: 950px;
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    }
+      
+
+    /* ===== Second Image ===== */
+    .second-img {
+      margin-top: 400px;
+      padding: 0 91px;
+      box-sizing: border-box;
+    }
+
+    .second-img img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      margin-top: auto;
+      padding: 40px 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+
+    .vincent {
+      font-size: clamp(10px, 1vw, 13px);
+      color: rgb(98, 97, 97);
+    }
+
+    .social {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .social p {
+      font-size: clamp(12px, 1.5vw, 17px);
+      color: black;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .main-header {
+        padding: 20px;
+      }
+      .nav {
+        gap: 20px;
+      }
+      .footer {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .social {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body data-page="about">
+
+  <header class="main-header">
+    <a href="work.html" class="Logo">V</a>
+    <nav class="nav">
+      <a href="work.html" class="nav-item" id="work">Work</a>
+      <a href="about.html" class="nav-item" id="about">About</a>
+      <div class="nav-underline"></div>
+    </nav>
+  </header>
+    
+  <!-- Hero -->
+  <div class="hero">
+    <img src="lemonyuzu.svg" alt="lemon yuzu">
+  </div>
+
+  <!-- Concept -->
+  <p class="concept">Concept</p>
+  <p class="concept title">健 康 と 美 容 を サ ポ ー ト す る美 肌 フ ル ー ツ テ ィ ー</p>
+  <p class="concept describ">美 肌 フ ル ー ツ テ ィ ー健康と美容を手軽に楽しむだけでなく、心と体を癒す新<br>
+    しいリラックス方法を提供します。グローバルな消費者にも理解しやすいデザイン<br>
+    と、洗練された自然美を重視したトータルブランディングを実
+    しました。</p> 
+  
+  <!-- Person info -->
+<div class="concept person-info">
+  <p>課題：個人ワーク　　期間：2ヶ月　　時期：大学2年後期</p>
+</div>
+
+<p class="package">ジャンル：Packaging design</p>
+
+   
+  <!-- Second Image -->
+  <div class="second-img">
+    <img src="visual identity.svg" alt="vi">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="vincent">©Vincent Low Sik Ching. All Rights Reserved.</p>
+    <div class="social">
+      <p class="Email">Email</p>
+      <p class="Twitter">Twitter</p>
+      <p class="Linkedln">Linkedln</p>
+      <p class="Instagram">Instagram</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const underline = document.querySelector('.nav-underline');
+      const items = document.querySelectorAll('.nav-item');
+      const currentId = document.body.dataset.page;
+      const currentItem = document.getElementById(currentId);
+      const header = document.querySelector('.main-header');
+
+      function setUnderline(el) {
+        if (el) {
+          underline.style.width = `${el.offsetWidth}px`;
+          underline.style.left = `${el.offsetLeft}px`;
+        }
+      }
+
+      if (currentItem) {
+        requestAnimationFrame(() => {
+          setUnderline(currentItem);
+        });
+      }
+
+      items.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.preventDefault();
+          setUnderline(this);
+          setTimeout(() => {
+            window.location.href = this.href;
+          }, 400);
+        });
+      });
+
+      // 滚动时切换 header 样式
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    });
+
+    document.querySelector('.Instagram').addEventListener('click', () => {
+      window.open('https://www.instagram.com/vincent_low02/profilecard/?igsh=MWt4NW1hMmZkeTl5ZQ%3D%3D', '_blank');
+    });
+
+    document.querySelector('.Linkedln').addEventListener('click', () => {
+      window.open('https://www.linkedin.com/in/vincent-low-sik-ching/', '_blank');
+    });
+
+    document.querySelector('.Twitter').addEventListener('click', () => {
+      window.open('https://x.com/vincentlow521?s=11', '_blank');
+    });
+
+    document.querySelector('.Email').addEventListener('click', () => {
+      window.location.href = 'mailto:lowvincent21@gmail.com';
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+

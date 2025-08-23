@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About</title>
+  <style>
+    html, body {
+      min-height: 4500px;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .Logo {
+      font-size: 55px;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+      position: relative;
+      top: 170px;
+      left: 60px;
+    }
+
+    .ddd {
+      position: relative;
+      top: 90px;
+      left: 860px;
+      cursor: pointer;
+    }
+
+    /* ===== Overlay 样式 ===== */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      overflow-y: auto;
+      transition: opacity 0.4s ease;
+      pointer-events: none;   /* ✅ 默认不拦截事件 */
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;   /* ✅ 打开时才启用交互 */
+    }
+
+    .overlay iframe {
+      width: 100%;
+      height: 2000px;
+      border: none;
+    }
+
+    /* ===== 页面内容样式 ===== */
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 220px 63px 0;
+    }
+
+    .title, .title02 {
+      font-size: 60px;
+      font-weight: bold;
+      letter-spacing: clamp(0.4px, 0.5vw, 0.7px);
+      margin: 0;
+    }
+
+    .english {
+      font-size: clamp(40px, 2vw, 100px);
+      color: rgb(98, 97, 97);
+      margin: 0 0 20px 0;
+      padding: 40px 63px 0;
+      text-align: left;
+    }
+
+    .japan {
+      font-size: clamp(30px, 2vw, 32px);
+      color: black;
+      margin: 0;
+      padding: 0 63px;
+      text-align: left;
+    }
+
+    /* 控制图片大小 + 鼠标效果 */
+    .cover {
+      width: calc(100% - 126px);
+      height: auto;
+      margin: 140px auto 0;
+      display: block;
+      cursor: pointer;
+      transition: filter 0.3s ease;
+    }
+
+    .cover:hover {
+      filter: brightness(80%);
+    }
+
+    /* 控制标题字体 */
+    .go {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 34px 0 6px;
+      text-align: left;
+      padding-left: 63px;
+    }
+
+    /* 控制说明文字 */
+    .event {
+      font-size: 16px;
+      color: #7c7b7b;
+      margin: 0;
+      text-align: left;
+      padding-left: 63px;
+    }
+
+    .vincent {
+      position: absolute;
+      top: 4200px;
+      left: 60px;
+      font-size: 23px;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* 社交链接 */
+    .social-link {
+      font-size: 34px;
+      color: rgb(98, 97, 97);
+      position: absolute;
+      left: 60px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .Email    { top: 3940px; }
+    .Twitter  { top: 4000px; }
+    .Linkedln { top: 4057px; }
+    .Instagram{ top: 4120px; }
+  </style>
+</head>
+<body data-page="about">
+
+  <header class="main-header">
+    <a href="mobilework.html" class="Logo">V</a>
+  </header>
+
+  <img class="ddd" src="Group 16.svg" alt="ddd" width="70" height="70">
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="title">UI/UX Designer</p>
+      <p class="title02">Product Designer</p>
+    </div>
+    <p class="english">design products and services that bring value and joy to people's lives.</p>
+    <p class="japan">新しい製品やサービスを創造し、社会に価値と幸福をもたらすことです</p>
+  </section>
+
+  <section class="cover-section">
+    <!-- 左边：Go Event -->
+    <div class="cover-group">
+      <img class="cover" src="go event cover（mobile).svg" alt="Go Event Cover">
+      <p class="go">Go Event</p>
+      <p class="event">UI design , UX design , Service design</p>
+    </div>
+
+    <!-- 中间：Workspace -->
+    <div class="cover-group">
+      <img class="cover" src="workspace(mobile).svg" alt="Workspace Cover">
+      <p class="go">Workspace</p>
+      <p class="event">Web design , UX research , Product design</p>
+    </div>
+
+    <!-- 右边：Lemon Yuzu Fruit Tea -->
+    <div class="cover-group">
+      <a href="mobilepackaging.html">   <!-- ✅ 直接跳转 -->
+        <img class="cover" src="packaging01(mobile).svg" alt="Lemon Yuzu Fruit Tea">
+      </a>
+      <p class="go">Lemon Yuzu Fruit Tea</p>
+      <p class="event">Packaging design , Graphic design</p>
+    </div>
+  </section>
+
+  <p class="vincent">©Vincent Low Sik Ching. All Rights Reserved.</p>
+
+  <!-- 社交链接 -->
+  <a class="Email social-link" href="#">Email</a>
+  <a class="Twitter social-link" href="#">Twitter</a>
+  <a class="Linkedln social-link" href="#">LinkedIn</a>
+  <a class="Instagram social-link" href="#">Instagram</a>
+
+  <!-- Overlay -->
+  <div class="overlay" id="myOverlay">
+    <iframe id="overlayFrame"></iframe>
+  </div>
+
+  <script>
+    const overlay = document.getElementById("myOverlay");
+    const iframe = document.getElementById("overlayFrame");
+    const ddd = document.querySelector(".ddd");
+
+    // 点击 ddd 打开 overlay 并加载 mobilechoose.html
+    ddd.addEventListener("click", () => {
+      iframe.src = "mobilechoose.html";
+      overlay.classList.add("show");
+      document.body.style.overflow = 'hidden';
+    });
+
+    // 点击 overlay 背景关闭
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove("show");
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // 给 iframe 页面调用的关闭函数
+    window.closeOverlay = function () {
+      overlay.classList.remove("show");
+      document.body.style.overflow = 'auto';
+    };
+
+    // 社交链接点击事件
+    document.querySelector('.Instagram').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://www.instagram.com/vincent_low02', '_blank');
+    });
+
+    document.querySelector('.Linkedln').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://www.linkedin.com/in/vincent-low-sik-ching/', '_blank');
+    });
+
+    document.querySelector('.Twitter').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://x.com/vincentlow521?s=11', '_blank');
+    });
+
+    document.querySelector('.Email').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'mailto:lowvincent21@gmail.com';
+    });
+  </script>
+
+</body>
+</html>
+
+

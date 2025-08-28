@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* ===== Header ===== */
+    .main-header {
+      width: 100%;
+      padding: 20px 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: transparent;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .Logo {
+      font-size: clamp(20px, 2vw, 24px);
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+      transition: color 0.3s ease;
+    }
+
+    .nav {
+      display: flex;
+      gap: 60px;
+      position: relative;
+    }
+
+    .nav-item {
+      font-size: clamp(16px, 1.5vw, 19px);
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-underline {
+      position: absolute;
+      bottom: -5px;
+      height: 2px;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .main-header.scrolled {
+      background: white;
+    }
+
+    .main-header.scrolled .Logo,
+    .main-header.scrolled .nav-item {
+      color: black;
+    }
+
+    .main-header.scrolled .nav-underline {
+      background-color: black;
+    }
+
+    /* ===== Hero ===== */
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 100%;
+      margin-top: -100px;
+    }
+
+    /* ===== Intro ===== */
+    .goevent-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 100px;
+      padding-left: 225px;
+      margin-top: 100px;
+    }
+
+    .goevent {
+      font-size: clamp(40px, 4vw, 54px);
+      font-weight: bold;
+      color: black;
+      letter-spacing: 3.7px;
+      margin: 0;
+    }
+
+    .goevent-desc {
+      font-size: clamp(20px, 2.5vw, 27px);
+      color: rgb(63, 63, 63);
+      margin: 0;
+      line-height: 40px;
+      position: relative;
+      top: -10px;
+    }
+
+    .goevent-detail {
+      font-size: clamp(12px, 1.2vw, 15px);
+      line-height: 1.8;
+      color: #444;
+      max-width: 800px;
+      margin-top: 7px;
+      padding-left: 600px;
+    }
+
+    .person-info {
+      margin: 20px 0 0 600px;
+      font-size: clamp(11px, 1vw, 14px);
+      color: black;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .info-line {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 70px 124px;
+    }
+
+    /* ===== 三栏 Section ===== */
+    .project-wrapper {
+      margin-left: 130px;
+      margin-top: -20px;
+    }
+
+    .project-sections {
+      display: flex;
+      gap: 170px;
+      margin: 40px auto 200px auto;
+      padding: 0 120px;
+      box-sizing: border-box;
+    }
+
+    .section {
+      flex: 1;
+      max-width: 700px;
+    }
+
+    .section-title {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+
+    .section-text {
+      font-size: clamp(12px, 1.2vw, 14px);
+      line-height: 1.8;
+      color: #444;
+    }
+
+    @media (max-width: 900px) {
+      .project-sections {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 100px;
+      }
+
+      .section {
+        max-width: 100%;
+        text-align: left !important;
+      }
+
+      .project-wrapper {
+        margin-right: 1000px;
+      }
+    }
+
+    /* ===== Research 区域 ===== */
+    .research-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding: 100px 140px;
+      box-sizing: border-box;
+    }
+
+    .research-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+      gap: 10px;
+    }
+
+    .research-text {
+      max-width: 500px;
+      margin-left: 110px;
+    }
+
+    .research {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: bold;
+      margin-top: -20px;
+    }
+
+    .descri {
+      font-size: clamp(12px, 1.2vw, 14px);
+      line-height: 1.6;
+      color: #000;
+      margin: 0;
+    }
+
+    /* 图片滑动容器 */
+    .research-image {
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      margin-top: -30px;
+      margin-left: 150px;
+    }
+
+    .research-slider {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .research-slider img {
+      width: 100%;
+      height: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    /* 按钮样式 */
+    .carousel-controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-controls button {
+      background: rgba(106, 105, 105, 0.6);
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: clamp(14px, 1.2vw, 16px);
+      transition: background 0.2s ease;
+    }
+
+    .carousel-controls button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* User Flow & UX */
+    .userflow {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: bold;
+      padding-left: 170px;
+      margin-top: 40px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .image img,
+    .image01 img,
+    .uximage01 img,
+    .uximage02 img {
+      width: 100vw;
+      height: auto;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .userexperience {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: bold;
+      padding-left: 170px;
+      margin-top: 40px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .finaldesign {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: bold;
+      padding-left: 170px;
+      margin-top: 40px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    /* YouTube 视频容器样式 */
+   .youtube-container {
+  max-width: 800px;      /* 控制最大宽度，可根据需要改 */
+  margin: 50px auto;     /* 居中 + 往下留空 */
+}
+
+.youtube-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;  /* 固定 16:9，不会被拉长 */
+}
+
+
+    /* Project Arrow */
+    .projectarrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 148px;
+      margin: 120px 0;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project {
+      font-size: clamp(16px, 1.5vw, 20px);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .projectarrow img {
+      height: 24px;
+      width: auto;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: auto;
+      padding: 40px 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+
+    .vincent {
+      font-size: clamp(10px, 1vw, 13px);
+      color: rgb(98, 97, 97);
+    }
+
+    .social {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .social p {
+      font-size: clamp(12px, 1.5vw, 17px);
+      color: black;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .main-header {
+        padding: 20px;
+      }
+
+      .nav {
+        gap: 20px;
+      }
+
+      .footer {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .social {
+        gap: 20px;
+      }
+
+      .research-content {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .research-image {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .research-slider img {
+        width: 100%;
+      }
+      
+      .youtube-container {
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: unset; /* 在小屏幕上取消最大宽度限制 */
+      }
+    }
+  </style>
+</head>
+
+<body data-page="about">
+
+  <header class="main-header">
+    <a href="work.html" class="Logo">V</a>
+    <nav class="nav">
+      <a href="work.html" class="nav-item" id="work">Work</a>
+      <a href="about.html" class="nav-item" id="about">About</a>
+      <div class="nav-underline"></div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <img src="goevent.svg" alt="lemon yuzu">
+    </div>
+
+    <div class="goevent-wrap">
+      <p class="goevent">Go Event</p>
+      <p class="goevent-desc">周辺イベントを簡単に見つけすぐ参加<br>できるアプリ</p>
+    </div>
+
+    <p class="goevent-detail">
+      アプリを開くだけで、近くのイベントを手軽にチェック。気
+      になる<br>イベントがあれば、その場でチケットを購入すぐ参加
+    </p>
+
+    <div class="person-info">
+      <p>課題：個人ワーク　　期間：2ヶ月　　時期：大学2年後期</p>
+    </div>
+
+    <hr class="info-line">
+
+    <div class="project-wrapper">
+      <div class="project-sections">
+        <div class="section challenge">
+          <h3 class="section-title">Project Challenge</h3>
+          <p class="section-text">
+            ユユーザーの動線設計だった。少ないステップで自然に操作できるよう、初期に複数のプロトタイプを作り、友人のフィードバックをもとに改善を繰り返した。情報の優先度と視線の流れを整理し、直感的で使いやすいUIに仕上げた。
+          </p>
+        </div>
+
+        <div class="section goals">
+          <h3 class="section-title">Project Goals</h3>
+          <p class="section-text">
+            ユーザーが近くのイベントを素早く見つけて参加できるようにし、検索にかかる時間を大幅に短縮することを目指しました。
+          </p>
+        </div>
+
+        <div class="section tools">
+          <h3 class="section-title">Design Tools</h3>
+          <p class="section-text">Figma, Adobe CC</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-section" style="background: url('Rectangle grey.svg') no-repeat center/cover;">
+      <div class="research-content">
+        <div class="research-text">
+          <p class="research">Research</p>
+          <p class="descri">
+            まずオンラインでデータリサーチを行い、その後ユーザーインタビューを実施して課
+            題を発見。次にペルソナを設定し、カスタマージャーニーマップを作成してユーザーの行動やニーズを明確化。
+          </p>
+        </div>
+
+        <div class="research-image">
+          <div class="research-slider">
+            <img src="research01.svg" alt="research image">
+            <img src="research02.svg" alt="research image">
+            <img src="persona.svg" alt="research image">
+            <img src="cjm.svg" alt="research image">
+          </div>
+          <div class="carousel-controls">
+            <button class="prev-btn">←</button>
+            <button class="next-btn">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-section" style="background: url('Rectangle 01svg.svg') no-repeat center/cover; margin-top: 0px;">
+      <div class="research-content">
+        <div class="research-text">
+          <p class="research">Design Interaction</p>
+          <p class="descri">
+            UXサイトマップを作成し、ユーザーの画面遷移を明確化。Version01では機能の抜けやフォント数の多さが課題となり、インターフェースの使いやすさと視覚表現を高めるため、反復とフィードバックで洗練した
+          </p>
+        </div>
+        <div class="research-image">
+          <div class="research-slider">
+            <img src="interaction01.svg" alt="research image">
+            <img src="interaction02.svg" alt="research image">
+            <img src="interaction03.svg" alt="research image">
+            <img src="interaction04.svg" alt="research-image">
+          </div>
+          <div class="carousel-controls">
+            <button class="prev-btn">←</button>
+            <button class="next-btn">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="userflow">User Flow</p>
+    <div class="image">
+      <img src="userflow01.svg" alt="User Flow">
+    </div>
+
+    <div class="image01">
+      <img src="userflow02.svg" alt="User Flow">
+    </div>
+
+    <p class="userexperience">User Experience</p>
+    <div class="uximage01">
+      <img src="ux01.svg" alt="User Flow">
+    </div>
+
+    <div class="uximage02">
+      <img src="ux02.svg" alt="User Flow">
+    </div>
+
+    <p class="finaldesign">Final Design </p>
+
+   <div class="youtube-container" style="margin-top: 70px;">
+  <iframe 
+    src="https://www.youtube.com/embed/aBPhvwhgYXs"
+    title="YouTube video player" 
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+</div>
+
+    <a href="work.html" class="projectarrow">
+      <img src="Projects Arrow.svg" alt="Arrow2">
+      <p class="project">Projects</p>
+    </a>
+  </main>
+
+  <footer class="footer">
+    <p class="vincent">©Vincent Low Sik Ching. All Rights Reserved.</p>
+    <div class="social">
+      <p class="Email">Email</p>
+      <p class="Twitter">Twitter</p>
+      <p class="Linkedln">Linkedln</p>
+      <p class="Instagram">Instagram</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Header underline
+      const underline = document.querySelector('.nav-underline');
+      const items = document.querySelectorAll('.nav-item');
+      const currentId = document.body.dataset.page;
+      const currentItem = document.getElementById(currentId);
+      const header = document.querySelector('.main-header');
+
+      function setUnderline(el) {
+        if (el) {
+          underline.style.width = `${el.offsetWidth}px`;
+          underline.style.left = `${el.offsetLeft}px`;
+        }
+      }
+      if (currentItem) requestAnimationFrame(() => setUnderline(currentItem));
+
+      items.forEach(item => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          setUnderline(this);
+          setTimeout(() => {
+            window.location.href = this.href;
+          }, 400);
+        });
+      });
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      // Social links
+      document.querySelector('.Instagram').addEventListener('click', () => {
+        window.open('https://www.instagram.com/vincent_low02/', '_blank');
+      });
+      document.querySelector('.Linkedln').addEventListener('click', () => {
+        window.open('https://www.linkedin.com/in/vincent-low-sik-ching/', '_blank');
+      });
+      document.querySelector('.Twitter').addEventListener('click', () => {
+        window.open('https://x.com/vincentlow521?s=11', '_blank');
+      });
+      document.querySelector('.Email').addEventListener('click', () => {
+        window.location.href = 'mailto:vincentlow521@gmail.com';
+      });
+
+      // 研究区图片滑动切换（支持多个 section）
+      document.querySelectorAll('.research-section').forEach(section => {
+        const slider = section.querySelector('.research-slider');
+        const slides = slider.querySelectorAll('img');
+        const nextBtn = section.querySelector('.next-btn');
+        const prevBtn = section.querySelector('.prev-btn');
+        const total = slides.length;
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          slider.style.transform = `translateX(${-index * slider.offsetWidth}px)`;
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % total;
+          showSlide(currentIndex);
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + total) % total;
+          showSlide(currentIndex);
+        });
+
+        window.addEventListener('resize', () => showSlide(currentIndex));
+      });
+    });
+  </script>
+
+</body>
+</html>

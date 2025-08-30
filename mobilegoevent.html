@@ -104,7 +104,7 @@
       width: 100vw;
       min-height: 1300px;
       margin-top: 100px;
-      background-image: url('Rectangle mobile01.svg');
+      background-image: url('rectangle mobile01.svg');
       background-size: cover;
       background-position: center;
       padding: 100px 0 50px;
@@ -121,6 +121,36 @@
       margin-top: 0;
     }
     
+    /* Design Interaction Section Styles */
+    .design-interaction-section {
+      width: 100vw;
+      min-height: 1300px; /* Increased height to fit slider */
+      margin-top: 0; 
+      background-image: url('Rectangle mobile02.svg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 50px; /* Adjusted padding */
+      box-sizing: border-box;
+    }
+
+    /* Styles for the text provided */
+    .research {
+      font-weight: bold;
+      font-size: 50px;
+      color: black;
+      margin-top: 0;
+      margin-left: 50px; /* Added margin for consistency */
+    }
+
+    .descri {
+      font-size: 40px;
+      line-height: 59px;
+      color: rgb(28, 28, 28);
+      margin-top: -20px;
+      margin-left: 50px; /* Added margin for consistency */
+      margin-right: 60px;
+    }
+
     /* ===== FINAL Slider Styles (30px margin) ===== */
     .slider-container {
         position: relative;
@@ -136,16 +166,15 @@
     }
 
     .slider-wrapper img {
-        width: calc(100% - 60px); /* Adjust width for 30px left/right margin */
-        margin: 0 30px; /* 30px margin on left and right for the image */
+        width: calc(100% - 60px); 
+        margin: 0 30px; 
         flex-shrink: 0;
     }
 
-    /* Controls positioned relative to the image content */
     .slider-controls {
         position: absolute;
         top: 15px;
-        left: 45px; /* Adjusted: 30px (image margin) + 15px (internal offset) */
+        left: 45px;
         display: flex;
         gap: 10px;
         z-index: 10;
@@ -165,7 +194,6 @@
         justify-content: center;
     }
     /* ============================================== */
-
 
     /* Footer */
     .footer-content {
@@ -217,7 +245,7 @@
     }
   </style>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNX48M29QH"></script>
+  <script async src="https://www.googagmanager.com/gtag/js?id=G-YNX48M29QH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
@@ -278,13 +306,36 @@
         <div class="slider-wrapper">
             <img src="researchmobile.svg" alt="Research Image 1"> 
             <img src="researchmobile02.svg" alt="Research Image 2">
+            <img src="researchmobile03.svg" alt="Research Image 3">
+            <img src="researchmobile04.svg" alt="Research Image 4">
         </div>
         <div class="slider-controls">
-            <button class="slider-btn" id="prevBtn">←</button>
-            <button class="slider-btn" id="nextBtn">→</button>
+            <button class="slider-btn prev-btn">←</button>
+            <button class="slider-btn next-btn">→</button>
         </div>
     </div>
-    </section>
+  </section>
+
+  <section class="design-interaction-section">
+    <div class="research-text">
+      <p class="research">Design Interaction</p>
+      <p class="descri">
+        UXサイトマップを作成し、ユーザーの画面遷移を明確化。Version01では機能の抜けやフォント数の多さが課題となり、インターフェースの使いやすさと視覚表現を高めるため、反復とフィードバックで洗練した
+      </p>
+    </div>
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <img src="mobileinteraction01.svg" alt="Interaction Image 1"> 
+            <img src="mobileinteraction02.svg" alt="Interaction Image 2">
+            <img src="mobileinteraction03.svg" alt="Interaction Image 3">
+            <img src="mobileinteraction04.svg" alt="Interaction Image 4">
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn prev-btn">←</button>
+            <button class="slider-btn next-btn">→</button>
+        </div>
+    </div>
+  </section>
 
   <footer class="footer-content">
     <a class="Email social-link" href="#">Email</a>
@@ -337,13 +388,17 @@
       window.location.href = 'mailto:lowvincent21@gmail.com';
     });
 
-    // --- Slider JavaScript ---
+    // --- UPGRADED Slider JavaScript (Handles multiple sliders) ---
     document.addEventListener('DOMContentLoaded', () => {
-        const sliderContainer = document.querySelector('.slider-container');
-        const sliderWrapper = document.querySelector('.slider-wrapper');
-        const slides = document.querySelectorAll('.slider-wrapper img');
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
+      // Find all slider containers on the page
+      const allSliders = document.querySelectorAll('.slider-container');
+
+      // Initialize each slider separately
+      allSliders.forEach(sliderContainer => {
+        const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
+        const slides = sliderContainer.querySelectorAll('.slider-wrapper img');
+        const nextBtn = sliderContainer.querySelector('.next-btn'); // Use class selector
+        const prevBtn = sliderContainer.querySelector('.prev-btn'); // Use class selector
 
         let currentIndex = 0;
         const totalSlides = slides.length;
@@ -365,10 +420,11 @@
         
         window.addEventListener('resize', updateSliderPosition);
         
+        // Initial position update for this specific slider
         updateSliderPosition();
+      });
     });
   </script>
 
 </body>
 </html>
-

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+  <style>
+    html, body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                   Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    /* Header */
+    .Logo {
+      font-size: 55px;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+      position: relative;
+      top: 170px;
+      left: 60px;
+    }
+
+    .ddd {
+      position: relative;
+      top: 90px;
+      left: 860px;
+      cursor: pointer;
+    }
+
+    /* Cover */
+    .packaging-cover {
+      display: block;
+      width: 100vw;
+      height: auto;
+      margin: 159px auto;
+    }
+
+    /* Content Images */
+    .content-image {
+      width: 100vw;
+      height: auto;
+      margin: 100px 0 0;
+      display: block;
+    }
+
+    /* Text Styles */
+    .concept {
+      font-size: clamp(60px, 5vw, 100px);
+      font-weight: bold;
+      padding-left: 54px;
+      margin-top: -40px;
+      letter-spacing: 2px;
+    }
+
+    .title {
+      font-size: clamp(30px, 5vw, 100px);
+      padding-left: 54px;
+    }
+
+    .description {
+      font-size: clamp(30px, 5vw, 40px);
+      line-height: 1.8;
+      padding: 0 54px;
+      font-weight: normal;
+      color: rgb(98, 97, 97);
+      margin-top: -27px;
+    }
+
+    .meta-info {
+      font-weight: bold;
+      font-size: clamp(32px, 2.5vw, 42px);
+      padding: 0 54px;
+      margin-top: 60px;
+      line-height: 50px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid dimgray;
+      margin: 100px 50px 0;
+    }
+
+    /* Section Titles */
+    .pc {
+      font-weight: bold;
+      font-size: 50px;
+      margin-left: 50px;
+      margin-top: 120px;
+    }
+
+    .title01, .title02, .title03 {
+      font-size: 40px;
+      margin-left: 50px;
+      margin-right: 60px;
+      line-height: 59px;
+      color: rgb(28, 28, 28);
+      margin-top: -20px;
+    }
+
+    /* Research Section with Background */
+    .research-section {
+      width: 100vw;
+      min-height: 1300px;
+      margin-top: 100px;
+      background-image: url('rectangle mobile01.svg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0 50px;
+      box-sizing: border-box;
+    }
+
+    .research-section .pc,
+    .research-section .title01 {
+      color: black;
+      margin-left: 50px;
+    }
+
+    .research-section .pc {
+      margin-top: 0;
+    }
+    
+    /* ===== FINAL Slider Styles (30px margin) ===== */
+    .slider-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 100px;
+    }
+
+    .slider-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slider-wrapper img {
+        width: calc(100% - 60px); /* Adjust width for 30px left/right margin */
+        margin: 0 30px; /* 30px margin on left and right for the image */
+        flex-shrink: 0;
+    }
+
+    /* Controls positioned relative to the image content */
+    .slider-controls {
+        position: absolute;
+        top: 15px;
+        left: 45px; /* Adjusted: 30px (image margin) + 15px (internal offset) */
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+
+    .slider-btn {
+        background-color: rgba(106, 105, 105, 0.6);
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 18px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* ============================================== */
+
+
+    /* Footer */
+    .footer-content {
+      position: relative;
+      padding: 40px 60px;
+      margin-top: 100px;
+    }
+
+    .vincent {
+      font-size: 23px;
+      color: black;
+      font-weight: bold;
+      margin-top: 100px;
+    }
+
+    .social-link {
+      font-size: 34px;
+      color: rgb(98, 97, 97);
+      text-decoration: none;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      overflow-y: auto;
+      transition: opacity 0.4s ease;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .overlay iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNX48M29QH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-YNX48M29QH');
+  </script>
+</head>
+<body>
+
+  <header class="main-header">
+    <a href="mobilework.html" class="Logo">V</a>
+  </header>
+  <img class="ddd" src="Group 16.svg" alt="menu" width="70" height="70">
+  <img src="goeventmobile.svg" alt="Go Event Cover" class="packaging-cover">
+
+  <p class="concept">Go event</p>
+  <p class="title">周辺イベントを簡単に見つけすぐ参<br>加できるアプリ</p>
+  <p class="description">
+    アプリを開くだけで、近くのイベントを手軽にチェック。<br>
+    気になるイベントがあれば、その場でチケットを購入すぐ参加できる。
+  </p>
+
+  <div class="meta-info">
+    課題：個人ワーク<br>
+    時期：大学2年後期<br>
+    期間：2ヶ月<br>
+    ジャンル：UI/UX Design
+  </div>
+
+  <hr class="divider">
+
+  <section>
+    <p class="pc">Project Challenge</p>
+    <p class="title01">
+      ユーザーの動線設計だった。少ないステップで自然に操作できるよう、初期に複数のプロトタイプを作り、友人のフィードバックをもとに改善を繰り返した。情報の優先度と視線の流れを整理し、直感的で使いやすいUIに仕上げた。
+    </p>
+  </section>
+
+  <section>
+    <p class="pc">Project Goals</p>
+    <p class="title02">
+      ユーザーが近くのイベントを素早く見つけて参加できるようにし、検索にかかる時間を大幅に短縮することを目指しました。
+    </p>
+  </section>
+
+  <section>
+    <p class="pc">Design Tools</p>
+    <p class="title03">Figma, Adobe CC</p>
+  </section>
+
+  <section class="research-section">
+    <p class="pc">Research</p>
+    <p class="title01">
+      まずオンラインでデータリサーチを行い、その後ユーザーインタビューを実施して課題を発見。次にペルソナを設定し、カスタマージャーニーマップを作成してユーザーの行動やニーズを明確化。
+    </p>
+    
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <img src="researchmobile.svg" alt="Research Image 1"> 
+            <img src="researchmobile02.svg" alt="Research Image 2">
+        </div>
+        <div class="slider-controls">
+            <button class="slider-btn" id="prevBtn">←</button>
+            <button class="slider-btn" id="nextBtn">→</button>
+        </div>
+    </div>
+    </section>
+
+  <footer class="footer-content">
+    <a class="Email social-link" href="#">Email</a>
+    <a class="Twitter social-link" href="#">Twitter</a>
+    <a class="Linkedln social-link" href="#">LinkedIn</a>
+    <a class="Instagram social-link" href="#">Instagram</a>
+    <p class="vincent">©Vincent Low Sik Ching. All Rights Reserved.</p>
+  </footer>
+
+  <div class="overlay" id="myOverlay">
+    <iframe id="overlayFrame"></iframe>
+  </div>
+
+  <script>
+    // --- Overlay and Social Links Script (No changes here) ---
+    const overlay = document.getElementById("myOverlay");
+    const iframe = document.getElementById("overlayFrame");
+    const ddd = document.querySelector(".ddd");
+    ddd.addEventListener("click", () => {
+      iframe.src = "mobilechoose.html";
+      overlay.classList.add("show");
+      document.body.style.overflow = 'hidden';
+    });
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeOverlay();
+    });
+    window.closeOverlay = function () {
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        overlay.classList.remove("show");
+        overlay.style.opacity = "";
+        document.body.style.overflow = 'auto';
+        iframe.src = "";
+      }, 400);
+    };
+    document.querySelector('.Instagram').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://www.instagram.com/vincent_low02', '_blank');
+    });
+    document.querySelector('.Linkedln').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://www.linkedin.com/in/vincent-low-sik-ching/', '_blank');
+    });
+    document.querySelector('.Twitter').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.open('https://x.com/vincentlow521?s=11', '_blank');
+    });
+    document.querySelector('.Email').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'mailto:lowvincent21@gmail.com';
+    });
+
+    // --- Slider JavaScript ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const sliderContainer = document.querySelector('.slider-container');
+        const sliderWrapper = document.querySelector('.slider-wrapper');
+        const slides = document.querySelectorAll('.slider-wrapper img');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateSliderPosition() {
+            const slideDisplayWidth = sliderContainer.clientWidth; 
+            sliderWrapper.style.transform = `translateX(${-currentIndex * slideDisplayWidth}px)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSliderPosition();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSliderPosition();
+        });
+        
+        window.addEventListener('resize', updateSliderPosition);
+        
+        updateSliderPosition();
+    });
+  </script>
+
+</body>
+</html>
